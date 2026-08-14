@@ -686,3 +686,8 @@ img,iframe,svg,video,table{max-width:100%}
   .menu-contact a:hover{border-color:var(--gold-light);color:var(--gold-dark)}
   .menu-contact svg{width:17px;height:17px;color:var(--gold-dark)}
 }
+
+/* v10: video-first section at top of homepage */
+.fb-top{padding:34px 0 44px;background:var(--cream);border-bottom:1px solid var(--line)}
+.fb-top .fb-video{margin:0 auto}
+.fb-top h2{margin-top:.15em}
