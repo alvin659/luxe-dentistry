@@ -46,7 +46,7 @@ const services = [
     nav: "Dental Implants",
     icon: "🦷",
     kw: "Dental Implants",
-    lead: "Permanent, natural-looking tooth replacement using titanium implants placed by a Harvard-trained implantologist with 25 years of experience.",
+    lead: "Permanent, natural-looking tooth replacement using titanium implants placed by an expert implantologist with 25 years of experience.",
     intro: [
       "A dental implant is a small titanium post that is surgically placed into the jawbone to replace the root of a missing tooth. Once it fuses with the bone, it supports a custom crown, bridge, or denture that looks, feels, and functions like a natural tooth. At Luxe Dentistry in Los Algodones, Dr. Jose Manuel Jimenez has placed implants for hundreds of patients from across the United States, Canada, and Mexico.",
       "Because Dr. Jimenez holds an implant certificate from the Autonomous University of Baja California and a Harvard School of Dental Medicine diploma in Evidence-Based Implant Dentistry, every case is planned around long-term success — not a quick fix. The result is a tooth replacement that can last for decades with normal care."
