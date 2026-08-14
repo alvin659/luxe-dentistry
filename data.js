@@ -159,10 +159,10 @@ const services = [
     nav: "Porcelain Veneers",
     icon: "🤍",
     kw: "Porcelain Veneers",
-    lead: "Ultra-thin, custom-crafted porcelain shells that instantly correct the color, shape, and alignment of your front teeth.",
+    lead: "Custom porcelain or affordable composite veneers that instantly correct the color, shape and alignment of your front teeth.",
     intro: [
       "Porcelain veneers are thin, custom-made shells bonded to the front of your teeth to transform their appearance. They are one of the fastest ways to correct stains, chips, small gaps, and uneven teeth, and they are a cornerstone of the smile makeovers Dr. Jose Manuel Jimenez is known for.",
-      "At Luxe Dentistry in Los Algodones, veneers are crafted from high-quality porcelain that mimics the way natural enamel reflects light — so your new smile looks bright and completely natural, never bulky or artificial."
+      "At Luxe Dentistry in Los Algodones, Dr. Jimenez offers both premium porcelain veneers, crafted to mimic the way natural enamel reflects light, and more affordable composite (direct) veneers shaped onto the tooth in a single visit. In your consultation he will recommend which option best suits your goals and budget, so your new smile looks bright and completely natural, never bulky or artificial."
     ],
     sections: [
       { h2: "Why patients love porcelain veneers", paras: [

@@ -358,9 +358,18 @@ function buildHome() {
   const title = `BEST Dental Clinic in ${CITY} | ${B.name} — Dental Implants, All-on-4, Veneers, Smile Makeover, Crowns & Dentures | Dental Clinic Near Me`;
   const desc = `If you're looking for a dental clinic near me, Luxe Dentistry by Dr. Jose Manuel Jimenez is the BEST dental clinic in ${CITY}: dental implants, All-on-4, veneers, crowns and smile makeovers. ${B.rating} on Google. Serving Yuma, Phoenix, San Diego and beyond.`;
   const areaChips = areas.map((a)=>`<a class="chip" href="/dentist-${a.slug}.html">${a.nav}</a>`).join("");
+  const homeFaqs = [
+    ["Is it safe to get dental work in Los Algodones?", "Yes. Los Algodones is one of the world's most established dental-tourism destinations, and Dr. Jimenez has 25 years of experience with modern equipment, sterilization and premium materials. Thousands of US and Canadian patients travel here every year, and our clinic is a member of the Mexican Dental Association (ADM)."],
+    ["How much can I save compared to US prices?", "Most patients save between 50% and 70% versus US and Canadian fees, and often more on larger cases like dental implants, All-on-4 and full-mouth restoration. The savings on bigger treatments usually far outweigh the cost of the trip. We give you a clear, honest quote before you travel."],
+    ["Do you speak English?", "Yes. Dr. Jimenez and the whole team speak both English and Spanish, so you can communicate comfortably throughout your visit."],
+    ["How do I get to the clinic?", "We are steps from the Andrade border crossing near Yuma, Arizona. Most patients park on the US side and walk across into town. We also offer complimentary border pickup and airport pickup from Yuma International."],
+    ["Can my treatment be done in one trip?", "Often, yes. Many cosmetic and restorative treatments are completed in a single visit. For implants that need healing time, we plan your visits in advance so you know exactly what to expect before you travel."],
+    ["Do you offer free consultations and quotes?", "Yes. Your initial consultation and quote are free and come with no obligation. You can even send photos or x-rays through our booking form so we can advise you before you arrive."],
+  ];
 
   const html = head(title, desc, "index.html")
   + businessSchema()
+  + faqSchema(homeFaqs)
   + header("home")
   + `
 <section class="hero">
@@ -417,15 +426,6 @@ function buildHome() {
   <div class="item"><div class="num">ADM</div><div class="lbl">Member Clinic</div></div>
 </div></div>
 
-<section>
-  <div class="wrap center">
-    <div class="eyebrow">Our Dental Services</div>
-    <h2>Complete Dental Care, Organized by Category</h2>
-    <p class="section-intro">Everything you need under one roof in Los Algodones, grouped by category. Start with cosmetic dentistry, then implants and restorative, then general and preventive care.</p>
-    ${categorySections()}
-  </div>
-</section>
-
 <section class="section-dark">
   <div class="wrap split">
     <div>
@@ -450,72 +450,91 @@ function buildHome() {
   </div>
 </section>
 
-<section>
-  <div class="wrap center">
-    <div class="eyebrow">Welcome to Luxe Dentistry</div>
-    <h2>A Modern, Family-Owned Clinic in "Molar City"</h2>
-    <p class="section-intro">Our purpose-built clinic in Los Algodones is spacious, modern and comfortable, with digital technology, an on-site pharmacy, and exclusive on-site parking. Walk across the border and you are only steps away.</p>
-    ${clinicGallery()}
-    <p style="margin-top:28px"><a class="btn btn-outline" href="/about.html">More About Our Clinic</a></p>
+<section class="reviews-section">
+  <div class="wrap">
+    <div class="reviews-layout">
+      <aside class="reviews-score">
+        <div class="rscore">${B.rating}</div>
+        <div class="rstars">${stars(5)}</div>
+        <p class="rmeta">Rated by ${B.reviewWord} happy patients on Google</p>
+        <a class="btn btn-gold" href="${B.gbp}" target="_blank" rel="noopener">Read reviews on Google</a>
+        <a class="rlink" href="${B.facebook}" target="_blank" rel="noopener">See reviews on Facebook</a>
+      </aside>
+      <div class="reviews-cards">
+        ${reviews.map((r)=>`
+        <figure class="rcard">
+          <div class="rcard-head">${stars(r.stars)}<span class="rbadge">Verified patient</span></div>
+          <blockquote>"${r.text}"</blockquote>
+          <figcaption><strong>${r.name}</strong><span>${r.treatment} &middot; ${r.place}</span></figcaption>
+        </figure>`).join("")}
+      </div>
+    </div>
+    <div class="reviews-photos">${patientPhotos()}</div>
+    <p class="center" style="margin:30px 0 0"><a class="btn btn-outline" href="/testimonials.html">Watch Video Reviews &amp; See Before/After</a></p>
   </div>
 </section>
 
-<section id="video" class="section-alt">
-  <div class="wrap center">
-    <div class="eyebrow">Patient Video Reviews</div>
-    <h2>Hear From Our Patients</h2>
-    <p class="section-intro">Real video reviews shared from our Facebook page. Watch patients describe their experience before and after treatment with Dr. Jimenez.</p>
-    ${videoBlock([1])}
-    <p style="margin-top:26px"><a class="btn btn-outline" href="/testimonials.html">See More Reviews &amp; Before/After Cases</a></p>
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Your new smile starts with a free consultation</h2>
+    <p>Send your details and a few photos, and Dr. Jimenez will reply with an honest plan and quote before you travel.</p>
+    <div class="cta-actions">
+      <a class="btn btn-ghost" href="/booking.html">Book an Appointment</a>
+      <a class="btn btn-gold" href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener">${I.wa} WhatsApp Us</a>
+    </div>
   </div>
 </section>
 
+<section class="about-home section-alt">
+  <div class="wrap about-layout">
+    <div class="about-media">
+      <img src="/assets/img/clinic-building.jpg" alt="The Luxe Dentistry clinic building in Los Algodones" loading="lazy">
+      <span class="about-badge">${I.pin} Los Algodones, Mexico</span>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">About Us</div>
+      <h2>A family-owned clinic in the heart of "Molar City"</h2>
+      <p>Luxe Dentistry is a family-owned and operated clinic offering the full range of dental care in Los Algodones. Our purpose-built space is modern and comfortable, with digital technology, an on-site pharmacy and exclusive patient parking, just steps from the US border.</p>
+      <ul class="ticks">
+        <li>${I.check} <span>Complimentary border &amp; Yuma airport pickup</span></li>
+        <li>${I.check} <span>English &amp; Spanish spoken, US PPO insurance accepted</span></li>
+        <li>${I.check} <span>Member of the Mexican Dental Association (ADM)</span></li>
+      </ul>
+      <a class="btn btn-gold" href="/about.html">More About Our Clinic</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:34px">${clinicGallery()}</div>
+</section>
+
 <section>
-  <div class="wrap center">
-    <div class="eyebrow">Smile Transformations</div>
-    <h2>Before &amp; After Working With Our Patients</h2>
-    <p class="section-intro">Real cases from Luxe Dentistry, planned around each patient for a natural, lasting result.</p>
-    ${beforeAfterBlock()}
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Our Treatments</div><h2>Complete Dental Care, by Category</h2>
+    <p class="section-intro">Cosmetic, implant and restorative, and general care, all under one roof.</p></div>
+    ${categorySections()}
   </div>
 </section>
 
 <section class="section-alt">
   <div class="wrap center">
-    <div class="eyebrow">Happy Patients</div>
-    <h2>Real Patients at Luxe Dentistry</h2>
-    <p class="section-intro">Patients travel from across Arizona, California and beyond, and leave smiling. Rated <a href="${B.gbp}" target="_blank" rel="noopener"><strong>${B.rating} on Google</strong></a>.</p>
-    ${patientPhotos()}
-    <div class="quote-grid" style="margin-top:34px">${reviewCards()}</div>
+    <div class="eyebrow">Smile Transformations</div>
+    <h2>Before &amp; After Working With Our Patients</h2>
+    <p class="section-intro">Real cases completed at our clinic. See more on our <a href="/testimonials.html">reviews page</a>.</p>
+    ${beforeAfterBlock()}
   </div>
 </section>
 
-<section>
-  <div class="wrap center">
-    <div class="eyebrow">Areas We Serve</div>
-    <h2>Trusted by Patients Across the Southwest</h2>
-    <p class="section-intro">Located steps from the US border, Luxe Dentistry welcomes patients from across Arizona, California, Nevada and northern Mexico. Find your city below.</p>
-    <div class="chips" style="justify-content:center">${areaChips}</div>
-  </div>
-</section>
-
-<section id="contact">
+<section class="areas-home">
   <div class="wrap">
-    <div class="center"><div class="eyebrow">Visit Luxe Dentistry</div><h2>Find Us in Los Algodones</h2></div>
-    <div class="map-wrap" style="margin-top:24px">
-      <iframe src="${B.mapEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Luxe Dentistry in Los Algodones"></iframe>
-      <div class="nap">
-        <h3>${B.name}</h3>
-        <dl>
-          <dt>${I.pin} Address</dt>
-          <dd>${B.street}<br>${B.city}, ${B.regionCode} ${B.postal}, ${B.country}</dd>
-          <dt>${I.phone} Phone</dt><dd><a href="tel:${B.phoneHref}">${B.phone}</a></dd>
-          <dt>${I.wa} WhatsApp</dt><dd><a href="https://wa.me/${B.whatsappHref}">${B.whatsapp}</a></dd>
-          <dt>${I.mail} Email</dt><dd><a href="mailto:${B.email}">${B.email}</a></dd>
-          <dt>${I.clock} Hours</dt><dd>${B.hours.map((h)=>`${h[0]}: ${h[1]}`).join("<br>")}</dd>
-        </dl>
-        <a class="btn btn-gold" href="/booking.html">Book an Appointment</a>
-      </div>
-    </div>
+    <div class="center"><div class="eyebrow">Areas We Serve</div><h2>Patients Travel to Us From Across the Southwest</h2>
+    <p class="section-intro">Steps from the US border, we welcome patients from Arizona, California, Nevada and northern Mexico.</p></div>
+    <div class="areas-grid">${areas.map((a)=>`<a href="/dentist-${a.slug}.html">${I.pin}<span>${a.nav}</span></a>`).join("")}</div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap faq-wrap">
+    <div class="center"><div class="eyebrow">FAQ</div><h2>Common Questions About Visiting Us</h2></div>
+    <div class="faq-list">${homeFaqs.map(([q,a])=>`<details class="faq"><summary>${q}</summary><div class="body">${a}</div></details>`).join("")}</div>
   </div>
 </section>
 `
