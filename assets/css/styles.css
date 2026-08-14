@@ -648,3 +648,41 @@ img,iframe,svg,video,table{max-width:100%}
 .ba-tag.tag-before{background:#9a5a26}
 .ba-tag.tag-after{background:#1f7a4d}
 .ba-cap .muted{font-weight:400;font-size:.82rem;display:block;margin-top:2px}
+
+/* ============================================================
+   v9: mobile/tablet drawer redesign — short, clean, collapsible
+   ============================================================ */
+.menu-cta{display:none}
+@media(max-width:900px){
+  .menu{padding:76px 0 24px;gap:0}
+  .menu>li{border-bottom:1px solid var(--line)}
+  .menu>li:last-child{border-bottom:0}
+  .site-header .menu>li>a{display:flex;align-items:center;justify-content:space-between;
+    padding:15px 22px;font-size:1rem;font-weight:600;color:var(--charcoal);border-radius:0}
+  .site-header .menu>li>a:hover{background:var(--sand);color:var(--gold-dark)}
+  .site-header .menu>li>a[aria-current="page"]{color:var(--gold-dark)}
+  /* chevron */
+  .menu .caret{display:inline-block;width:0;height:0;border-left:5px solid transparent;
+    border-right:5px solid transparent;border-top:6px solid var(--gold-dark);opacity:.85;
+    margin:0;transition:transform .25s ease}
+  .menu .has-dd.expanded>a .caret{transform:rotate(180deg)}
+  .menu .has-dd.expanded>a{background:var(--sand);color:var(--gold-dark)}
+  /* collapsible panels */
+  .menu .dropdown,.menu .dropdown-svc{position:static;display:block;background:var(--cream);
+    border:0;border-radius:0;box-shadow:none;min-width:0;max-width:100%;margin:0;padding:0;
+    max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .2s ease}
+  .menu .has-dd.expanded>.dropdown,.menu .has-dd.expanded>.dropdown-svc{max-height:1600px;opacity:1;padding:4px 0 10px}
+  .menu .dd-group{margin:0}
+  .menu .dd-head{padding:11px 22px 3px 30px;font-size:.7rem;border:0}
+  .menu .dropdown a,.menu .dropdown-svc a{display:block;padding:11px 22px 11px 34px;
+    font-size:.93rem;font-weight:500;color:var(--charcoal)}
+  .menu .dropdown a:hover,.menu .dropdown-svc a:hover{background:#fff;color:var(--gold-dark)}
+  /* drawer CTA footer */
+  .menu-cta{display:block;padding:18px 22px 4px}
+  .menu-cta .btn{display:block;width:100%}
+  .menu-contact{display:flex;gap:10px;margin-top:12px}
+  .menu-contact a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+    padding:11px;border:1px solid var(--line);border-radius:10px;font-size:.9rem;font-weight:600;color:var(--charcoal)}
+  .menu-contact a:hover{border-color:var(--gold-light);color:var(--gold-dark)}
+  .menu-contact svg{width:17px;height:17px;color:var(--gold-dark)}
+}

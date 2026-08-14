@@ -187,6 +187,13 @@ function header(active) {
       <li><a href="/team.html"${active==="team"?' aria-current="page"':""}>Team</a></li>
       <li><a href="/contact.html"${active==="contact"?' aria-current="page"':""}>Contact</a></li>
       <li><a href="/terms.html"${active==="terms"?' aria-current="page"':""}>Terms</a></li>
+      <li class="menu-cta">
+        <a class="btn btn-gold" href="/booking.html">Book Appointment</a>
+        <div class="menu-contact">
+          <a href="tel:${B.phoneHref}">${I.phone} Call</a>
+          <a href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener">${I.wa} WhatsApp</a>
+        </div>
+      </li>
     </ul>
     <div class="nav-cta">
       <a class="btn btn-gold" href="/booking.html">Book Appointment</a>
