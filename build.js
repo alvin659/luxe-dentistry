@@ -196,6 +196,10 @@ function header(active) {
       </li>
     </ul>
     <div class="nav-cta">
+      <div class="lang-switch notranslate" translate="no" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Espa&ntilde;ol">ES</button>
+      </div>
       <a class="btn btn-gold" href="/booking.html">Book Appointment</a>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     </div>
@@ -254,6 +258,13 @@ function footer() {
   <a class="fab-wa" href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${I.wa}</a>
   <a class="fab-call" href="tel:${B.phoneHref}" aria-label="Call the clinic">${I.phone}</a>
 </div>
+<div id="google_translate_element" aria-hidden="true"></div>
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es',autoDisplay:false},'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="/assets/js/main.js"></script>
 </body></html>`;
 }
