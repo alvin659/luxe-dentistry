@@ -52,7 +52,7 @@
     attempt = attempt || 0;
     var combo = document.querySelector('.goog-te-combo');
     if (combo) {
-      combo.value = (lang === 'en') ? 'en' : lang;
+      combo.value = (lang === 'en') ? '' : lang;
       combo.dispatchEvent(new Event('change'));
       // when returning to English, also clear the translation cookie so it fully resets
       if (lang === 'en') {
