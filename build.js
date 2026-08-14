@@ -235,8 +235,12 @@ function footer() {
       ${catCols}
       <div><h4>Areas We Serve</h4><ul>${areaCols}</ul></div>
     </div>
+    <div class="footer-map">
+      <div class="footer-map-label">${I.pin} Find us in ${B.city}: ${B.street}, ${B.regionCode} ${B.postal}</div>
+      <iframe src="${B.mapEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Luxe Dentistry in Los Algodones"></iframe>
+    </div>
     <div class="foot-links">
-      <a href="/about.html">About</a><a href="/team.html">The Dentist</a><a href="/services.html">Services</a>
+      <a href="/about.html">About</a><a href="/team.html">Team</a><a href="/services.html">Services</a>
       <a href="/testimonials.html">Reviews</a><a href="/booking.html">Book</a><a href="/contact.html">Contact</a>
       <a href="/terms.html">Terms</a><a href="${B.gbp}" target="_blank" rel="noopener">Google Profile</a>
     </div>

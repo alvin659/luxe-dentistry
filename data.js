@@ -662,6 +662,7 @@ const clinic = {
 const videoReviews = [
   { url: "https://www.facebook.com/reel/1633579904371173/", name: "Verified Patient", treatment: "Cosmetic & Implant Treatment", confirmName: true },
   { url: "https://www.facebook.com/reel/821641847381658/", name: "Verified Patient", treatment: "Smile Makeover", confirmName: true },
+  { url: "https://www.facebook.com/share/p/1PVVtuTJVG/", name: "Luxe Dentistry", treatment: "5,000+ Happy Patients", confirmName: true },
 ];
 
 /* ---------- WRITTEN REVIEWS (real, sourced & attributed) ---------- */
