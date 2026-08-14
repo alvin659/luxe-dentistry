@@ -711,3 +711,15 @@ img,iframe,svg,video,table{max-width:100%}
 body{top:0!important;position:static!important}
 .goog-text-highlight{background:none!important;box-shadow:none!important;color:inherit!important}
 @media(max-width:760px){.lang-btn{padding:6px 9px;font-size:.76rem}}
+
+/* v13: automatic Google Translate dropdown (visible) + video below hero picture */
+#google_translate_element{position:static;left:auto;top:auto;height:auto;width:auto;overflow:visible;display:inline-flex;align-items:center}
+.goog-te-gadget{font-size:0!important;line-height:0;color:transparent!important}
+.goog-te-gadget .goog-te-combo{margin:0;font-family:var(--sans);font-size:.82rem;font-weight:600;color:#efe7d6;background:rgba(255,255,255,.08);border:1px solid rgba(217,190,134,.5);border-radius:20px;padding:6px 10px;cursor:pointer;max-width:130px}
+.goog-te-gadget .goog-te-combo option{color:#1d1c1a}
+.goog-te-gadget span,.goog-te-gadget>span>a{display:none!important}
+.hero-right .fb-video{max-width:100%;margin:0}
+@media(max-width:760px){.goog-te-gadget .goog-te-combo{font-size:.78rem;padding:5px 8px}}
+
+.video-strip{padding:40px 0}
+.video-strip .fb-video{margin:0 auto}

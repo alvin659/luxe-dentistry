@@ -196,10 +196,7 @@ function header(active) {
       </li>
     </ul>
     <div class="nav-cta">
-      <div class="lang-switch notranslate" translate="no" role="group" aria-label="Language">
-        <button type="button" class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-        <button type="button" class="lang-btn" data-lang="es" aria-label="Espa&ntilde;ol">ES</button>
-      </div>
+      <div id="google_translate_element" class="notranslate" translate="no" aria-label="Translate this site"></div>
       <a class="btn btn-gold" href="/booking.html">Book Appointment</a>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     </div>
@@ -258,7 +255,6 @@ function footer() {
   <a class="fab-wa" href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">${I.wa}</a>
   <a class="fab-call" href="tel:${B.phoneHref}" aria-label="Call the clinic">${I.phone}</a>
 </div>
-<div id="google_translate_element" aria-hidden="true"></div>
 <script type="text/javascript">
 function googleTranslateElementInit(){
   new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es',autoDisplay:false},'google_translate_element');
@@ -367,18 +363,6 @@ function buildHome() {
   + businessSchema()
   + header("home")
   + `
-<section class="fb-top">
-  <div class="wrap center">
-    <div class="eyebrow">On Facebook</div>
-    <h2>See Our Clinic on Facebook</h2>
-    <p class="section-intro" style="margin-bottom:22px">Watch a video from Luxe Dentistry and follow us for patient smiles, clinic updates and more from Los Algodones.</p>
-    <div class="fb-video">
-      <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.clinicReel)}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video on Facebook"></iframe>
-    </div>
-    <a class="btn btn-gold" href="${B.facebook}" target="_blank" rel="noopener" style="margin-top:22px">Visit Our Facebook Page</a>
-  </div>
-</section>
-
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
@@ -415,6 +399,14 @@ function buildHome() {
     </div>
   </div>
   <div class="hero-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,38 C300,74 720,6 1080,28 C1260,39 1380,54 1440,44 L1440,70 L0,70 Z"></path></svg></div>
+</section>
+
+<section class="video-strip">
+  <div class="wrap center">
+    <div class="fb-video">
+      <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.clinicReel)}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video"></iframe>
+    </div>
+  </div>
 </section>
 
 <div class="trust"><div class="wrap">
