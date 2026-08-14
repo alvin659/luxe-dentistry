@@ -187,7 +187,7 @@ function header(active) {
       <li><a href="/about.html"${active==="about"?' aria-current="page"':""}>About</a></li>
       <li class="has-dd"><a href="/services.html"${active==="services"?' aria-current="page"':""}>Services <span class="caret"></span></a>
         <div class="dropdown dropdown-svc">${svcMenu}</div></li>
-      <li><a href="/team.html"${active==="team"?' aria-current="page"':""}>Our Team</a></li>
+      <li><a href="/team.html"${active==="team"?' aria-current="page"':""}>The Dentist</a></li>
       <li class="has-dd"><a href="/dentist-los-algodones.html"${active==="areas"?' aria-current="page"':""}>Areas <span class="caret"></span></a>
         <div class="dropdown">${areaLinks}</div></li>
       <li><a href="/testimonials.html"${active==="testimonials"?' aria-current="page"':""}>Reviews</a></li>
@@ -234,7 +234,7 @@ function footer() {
       <div><h4>Areas We Serve</h4><ul>${areaCols}</ul></div>
     </div>
     <div class="foot-links">
-      <a href="/about.html">About</a><a href="/team.html">Our Team</a><a href="/services.html">Services</a>
+      <a href="/about.html">About</a><a href="/team.html">The Dentist</a><a href="/services.html">Services</a>
       <a href="/testimonials.html">Reviews</a><a href="/booking.html">Book</a><a href="/contact.html">Contact</a>
       <a href="/terms.html">Terms</a><a href="${B.gbp}" target="_blank" rel="noopener">Google Profile</a>
     </div>
@@ -380,7 +380,7 @@ function buildHome() {
           <li>Save up to 70% versus US and Canada prices</li>
           <li>Walk across the border, steps from the Andrade crossing</li>
         </ul>
-        <a class="btn btn-gold" href="/team.html" style="width:100%;margin-top:6px">Meet the Team</a>
+        <a class="btn btn-gold" href="/team.html" style="width:100%;margin-top:6px">Meet the Dentist</a>
       </div>
     </div>
   </div>
@@ -418,7 +418,7 @@ function buildHome() {
       </ul>
       <div class="hero-actions">
         <a class="btn btn-gold" href="/about.html">Read His Full Story</a>
-        <a class="btn btn-outline light" href="/team.html">Meet the Team</a>
+        <a class="btn btn-outline light" href="/team.html">Meet the Dentist</a>
       </div>
     </div>
     <div class="doc-photo">
@@ -771,7 +771,7 @@ function buildAbout() {
 
     <h2>Why patients travel to Luxe Dentistry</h2>
     <p>Los Algodones, "Molar City," is one of the world's most popular destinations for quality, affordable dental care, and Luxe Dentistry is among its most trusted names. Patients from <a href="/dentist-yuma-az.html">Yuma</a>, <a href="/dentist-phoenix-az.html">Phoenix</a>, <a href="/dentist-san-diego-ca.html">San Diego</a> and beyond choose us for the rare combination of expert, Harvard-trained care and exceptional value.</p>
-    <p><a class="btn btn-gold" href="/team.html">Meet Our Team</a> <a class="btn btn-outline" href="/booking.html">Book an Appointment</a></p>
+    <p><a class="btn btn-gold" href="/team.html">Meet The Dentist</a> <a class="btn btn-outline" href="/booking.html">Book an Appointment</a></p>
   </article>
 
   <aside class="sidebar">
@@ -803,45 +803,51 @@ function buildAbout() {
    TEAM
    ============================================================ */
 function buildTeam() {
-  const title = `Our Team | ${B.name} — Meet the Dentist & Patient Care Team at the Best Dental Clinic in ${CITY}`;
-  const desc = `Meet the Luxe Dentistry team in ${CITY}: Dr. Jose Manuel Jimenez, DDS, our patient coordinators, dental assistants and lab technicians. English and Spanish spoken. ${B.rating} on Google.`;
-  const teamCards = team.map((t)=>`
+  const title = `Meet the Dentist | Dr. Jose Manuel Jimenez, DDS at ${B.name} — Cosmetic & Implant Dentist in ${CITY}`;
+  const desc = `Meet Dr. Jose Manuel Jimenez, DDS, the cosmetic and implant dentist behind Luxe Dentistry in ${CITY}. 25 years of experience, hundreds of smile makeovers. English and Spanish spoken. ${B.rating} on Google.`;
+  const t = team[0];
+  const teamCard = `
     <div class="team-card">
-      <div class="team-photo">${t.photo && hasImg(t.photo) ? `<img src="/assets/img/${t.photo}" alt="${esc(t.name)}, ${esc(t.role)} at Luxe Dentistry" loading="lazy">` : `<div class="team-initials">${t.name.split(" ").map(w=>w[0]).slice(0,2).join("")}</div>`}</div>
+      <div class="team-photo">${hasImg(t.photo) ? `<img src="/assets/img/${t.photo}" alt="${esc(t.name)}, ${esc(t.role)} at Luxe Dentistry" loading="lazy">` : `<div class="team-initials">${t.name.split(" ").map(w=>w[0]).slice(0,2).join("")}</div>`}</div>
       <div class="team-info">
         <h3>${t.name}</h3>
         <div class="team-role">${t.role}</div>
         <div class="team-langs">${I.check} Speaks ${t.langs}</div>
         ${t.bio.map((p)=>`<p>${p}</p>`).join("")}
+        <p><a class="btn btn-gold" href="/about.html">Full Bio &amp; Credentials</a> <a class="btn btn-outline" href="/booking.html">Book With Dr. Jimenez</a></p>
       </div>
-    </div>`).join("");
-  const supportCards = supportTeam.map((s)=>`
-    <div class="support-card"><h4>${s[0]}</h4><p>${s[1]}</p></div>`).join("");
+    </div>`;
+  const atWork = [
+    ["patient-02.jpg", "Dr. Jimenez with a patient in the treatment room"],
+    ["patient-04.jpg", "Dr. Jimenez with patients at the Luxe Dentistry reception"],
+    ["patient-01.jpg", "Dr. Jimenez welcoming a patient to the clinic"],
+  ].filter((s)=>hasImg(s[0]));
 
   const html = head(title, desc, "team.html")
-  + breadcrumbSchema([["Home","index.html"],["Our Team","team.html"]])
+  + breadcrumbSchema([["Home","index.html"],["Meet the Dentist","team.html"]])
   + personSchema()
   + header("team")
   + `
 <div class="page-head"><div class="wrap">
-  <div class="crumb"><a href="/index.html">Home</a> &rsaquo; Our Team</div>
-  <h1>Meet the Luxe Dentistry Team</h1>
-  <p>A friendly, bilingual team dedicated to making your visit to Los Algodones comfortable, clear and rewarding, from your first message to your final smile.</p>
+  <div class="crumb"><a href="/index.html">Home</a> &rsaquo; Meet the Dentist</div>
+  <h1>Meet Dr. Jose Manuel Jimenez, DDS</h1>
+  <p>The cosmetic and implant dentist behind Luxe Dentistry, dedicated to making your visit to Los Algodones comfortable, honest and rewarding, from your first message to your final smile.</p>
 </div></div>
 
 <section><div class="wrap">
-  <div class="team-list">${teamCards}</div>
+  <div class="team-list">${teamCard}</div>
 
+  ${atWork.length ? `
   <div class="center" style="margin-top:56px">
-    <div class="eyebrow">Behind Every Smile</div>
-    <h2>Our Supporting Team</h2>
-    <p class="section-intro">Alongside Dr. Jimenez and David, a dedicated team keeps your care smooth and comfortable at every step.</p>
+    <div class="eyebrow">At the Clinic</div>
+    <h2>Dr. Jimenez With Our Patients</h2>
+    <p class="section-intro">Real moments from the Luxe Dentistry clinic in Los Algodones.</p>
   </div>
-  <div class="support-grid">${supportCards}</div>
+  <div class="photo-grid photo-grid-3">${atWork.map((s)=>`<figure class="photo"><img src="/assets/img/${s[0]}" alt="${esc(s[1])}" loading="lazy"></figure>`).join("")}</div>` : ""}
 
-  <div class="callout gold" style="max-width:760px;margin:44px auto 0;text-align:center">
-    <h3 style="margin-top:0">Come and meet us</h3>
-    <p style="margin-bottom:14px">Book a free consultation with Dr. Jimenez, or message our patient care team on WhatsApp with any questions about travelling to Los Algodones.</p>
+  <div class="callout gold" style="max-width:760px;margin:48px auto 0;text-align:center">
+    <h3 style="margin-top:0">Come and meet Dr. Jimenez</h3>
+    <p style="margin-bottom:14px">Book a free consultation, or message us on WhatsApp with any questions about travelling to Los Algodones.</p>
     <a class="btn btn-gold" href="/booking.html">Book an Appointment</a>
     <a class="btn btn-outline" href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener">Message on WhatsApp</a>
   </div>

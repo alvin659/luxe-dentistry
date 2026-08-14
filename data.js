@@ -616,16 +616,6 @@ const team = [
       "He holds a diploma from the Harvard School of Dental Medicine in Evidence-Based Implant Dentistry and an implant certificate from the Autonomous University of Baja California, and he is a member of the Mexican Dental Association (ADM).",
     ],
   },
-  {
-    name: "David Gil",
-    role: "Administration Team Leader & Patient Coordinator",
-    photo: null,
-    langs: "English, Spanish",
-    bio: [
-      "David leads the front-office and patient-coordination team. He is often the first person international patients speak with, arranging quotes, appointments, border pickup and travel details so your visit runs smoothly from the moment you get in touch.",
-      "Fluent in English and Spanish, he makes sure every patient, whether local or travelling from the US or Canada, feels welcome and informed at every step.",
-    ],
-  },
 ];
 
 // supporting roles described honestly (no invented names)
