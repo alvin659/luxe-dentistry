@@ -171,7 +171,7 @@ function header(active) {
   const areaLinks = areas.map((a) => `<a href="/dentist-${a.slug}.html">${a.nav}</a>`).join("");
   return `
 <div class="topbar"><div class="wrap">
-  <span class="tb-left">${I.star} <strong>${B.rating}</strong> on Google &middot; ${cap(B.reviewWord)} happy patients &middot; Se habla espa&ntilde;ol</span>
+  <span class="tb-left">Se habla espa&ntilde;ol &middot; Walk across the border from Yuma, Arizona</span>
   <span class="tb-right">
     <a href="tel:${B.phoneHref}">${I.phone} ${B.phone}</a>
     <a href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener">${I.wa} WhatsApp</a>
@@ -180,8 +180,7 @@ function header(active) {
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="/index.html" aria-label="Luxe Dentistry home">
-      <img src="/assets/img/logo.jpeg" alt="Luxe Dentistry" class="brand-logo" width="150" height="63">
-      <small class="brand-sub">Dr. Jose M. Jimenez, DDS</small>
+      <img src="/assets/img/logo.jpeg" alt="Luxe Dentistry, Los Algodones" class="brand-logo" width="150" height="63">
     </a>
     <ul class="menu">
       <li><a href="/index.html"${active==="home"?' aria-current="page"':""}>Home</a></li>
@@ -362,7 +361,7 @@ function buildHome() {
       </div>
       <div class="hero-badges">
         <span>${I.check} 25 years of experience</span>
-        <span>${I.check} Harvard-trained implantologist</span>
+        <span>${I.check} Cosmetic &amp; implant specialist</span>
         <span>${I.check} Free consultation &amp; quote</span>
       </div>
     </div>
@@ -370,13 +369,13 @@ function buildHome() {
       <div class="hero-visual">
         <img class="hero-img" src="/assets/img/patient-04.jpg" alt="Happy patients with Dr. Jimenez at Luxe Dentistry in Los Algodones" width="450" height="560" loading="eager">
         <div class="hero-float float-rating">${stars(5)}<span><strong>4.9</strong> on Google</span></div>
-        <div class="hero-float float-cred">${I.check}<span>Harvard-trained<br>implantologist</span></div>
+        <div class="hero-float float-cred">${I.check}<span>25 years<br>experience</span></div>
       </div>
       <div class="hero-card">
         <h3>Why patients choose Luxe Dentistry</h3>
         <ul>
           <li>25 years of experience, 15 in Los Algodones</li>
-          <li>Harvard School of Dental Medicine implant diploma</li>
+          <li>Implant certificate, Autonomous University of Baja California</li>
           <li>Hundreds of smile makeovers performed</li>
           <li>Save up to 70% versus US and Canada prices</li>
           <li>Walk across the border, steps from the Andrade crossing</li>
@@ -413,7 +412,7 @@ function buildHome() {
       <p>With 25 years of experience, 15 of them in Los Algodones, Dr. Jimenez has continually advanced his training in cosmetic dentistry, implantology, oral surgery and complete restorative rehabilitation. His greatest passion is cosmetic dentistry, and he is recognized as one of the best dentists for smile makeovers in Los Algodones.</p>
       <ul class="credentials">
         <li>Doctor of Dental Surgery, University of Michoacana de San Nicolas de Hidalgo</li>
-        <li>Diplomate, Harvard School of Dental Medicine (Evidence-Based Implant Dentistry)</li>
+        <li>Advanced training in implantology and full-mouth rehabilitation</li>
         <li>Implant Certificate, Autonomous University of Baja California</li>
         <li>Member, Mexican Dental Association (ADM)</li>
       </ul>

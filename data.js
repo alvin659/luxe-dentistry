@@ -13,8 +13,8 @@ const business = {
   region: "Baja California",
   regionCode: "B.C.",
   country: "Mexico",
-  // ---- NAP sourced from the clinic's own listings (alianzamktg.com/drjimenez, WhatClinic) ----
-  street: "Alamo Street, corner with C Street",
+  // ---- NAP confirmed from the Google Business Profile ----
+  street: "Calle Álamo & Francisco I. Madero",
   postal: "21970",
   phone: "+1 (928) 304-7799",                   // US line published by the clinic
   phoneHref: "+19283047799",
@@ -35,7 +35,7 @@ const business = {
     "https://www.facebook.com/reel/1633579904371173/",
     "https://www.facebook.com/reel/821641847381658/"
   ],
-  mapEmbed: "https://www.google.com/maps?q=Luxe+Dentistry+Alamo+Street+Los+Algodones+Baja+California&output=embed"
+  mapEmbed: "https://www.google.com/maps?q=Luxe+Dentistry+Calle+Álamo+Los+Algodones+21970+Baja+California&output=embed"
 };
 
 /* ---------- SERVICES (one page each) ---------- */
