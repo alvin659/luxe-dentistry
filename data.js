@@ -35,6 +35,7 @@ const business = {
     "https://www.facebook.com/reel/1633579904371173/",
     "https://www.facebook.com/reel/821641847381658/"
   ],
+  clinicReel: "https://www.facebook.com/reel/1541095920998392/", // "#Ourbuilding" clinic video for the homepage
   mapEmbed: "https://www.google.com/maps?q=Luxe+Dentistry+Calle+Álamo+Los+Algodones+21970+Baja+California&output=embed"
 };
 
@@ -674,9 +675,13 @@ const reviews = [
 // Images download to assets/img with these filenames; if a file is missing the
 // build renders a labelled placeholder instead of a broken image.
 const beforeAfter = [
-  { img: "ba-full-mouth-bruxer.webp", cat: "Full Mouth Reconstruction", title: "Full Mouth Reconstruction" },
-  { img: "ba-implants.webp", cat: "Dental Implants", title: "Dental Implants" },
-  { img: "ba-smile-makeover.webp", cat: "Smile Makeover", title: "Smile Makeover" },
+  { img: "ba-full-mouth-bruxer.webp", cat: "Full Mouth Reconstruction", title: "Full Mouth Reconstruction", tag: "Before &amp; After" },
+  { img: "ba-implants.webp", cat: "Dental Implants", title: "Dental Implants", tag: "Before &amp; After" },
+  { img: "ba-smile-makeover.webp", cat: "Smile Makeover", title: "Smile Makeover", tag: "Before &amp; After" },
+  // Real case photos from the clinic's Facebook
+  { img: "ba-fb-before.jpg", cat: "Full Mouth Rehabilitation", title: "Severely Worn Teeth", tag: "Before" },
+  { img: "ba-fb-fullmouth.jpg", cat: "Full Mouth Restoration", title: "Full Mouth Restoration", tag: "After" },
+  { img: "ba-fb-allon5.jpg", cat: "All-on-5 Implants", title: "Upper &amp; Lower All-on-5", tag: "After" },
 ];
 
 /* ---------- Dr. Jimenez's verified credentials (real certificates) ---------- */

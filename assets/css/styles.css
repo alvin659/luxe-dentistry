@@ -641,3 +641,10 @@ img,iframe,svg,video,table{max-width:100%}
 .menu{gap:1px}
 .menu>li>a{padding:10px 9px;font-size:.9rem}
 @media(max-width:1080px){.menu>li>a{padding:9px 7px;font-size:.85rem}.nav{gap:6px}}
+
+/* v8: team group hero + before/after tag colours */
+.team-hero{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.team-hero img{width:100%;display:block;max-height:540px;object-fit:cover}
+.ba-tag.tag-before{background:#9a5a26}
+.ba-tag.tag-after{background:#1f7a4d}
+.ba-cap .muted{font-weight:400;font-size:.82rem;display:block;margin-top:2px}

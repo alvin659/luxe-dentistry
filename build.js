@@ -271,8 +271,8 @@ function beforeAfterBlock() {
       : `<div class="placeholder-img">Luxe before &amp; after<br>${esc(c.cat)}</div>`;
     return `
     <figure class="ba">
-      <div class="ba-media">${inner}<span class="ba-tag">Before &amp; After</span></div>
-      <figcaption class="ba-cap"><strong>${c.title}</strong></figcaption>
+      <div class="ba-media">${inner}<span class="ba-tag${c.tag==="Before"?" tag-before":c.tag==="After"?" tag-after":""}">${c.tag||"Before &amp; After"}</span></div>
+      <figcaption class="ba-cap"><strong>${c.title}</strong> <span class="muted">${c.cat}</span></figcaption>
     </figure>`;
   }).join("");
   return `<div class="ba-grid">${cards}</div>`;
@@ -391,6 +391,15 @@ function buildHome() {
   <div class="item"><div class="num">ADM</div><div class="lbl">Member Clinic</div></div>
 </div></div>
 
+<section>
+  <div class="wrap center">
+    <div class="eyebrow">Our Dental Services</div>
+    <h2>Complete Dental Care, Organized by Category</h2>
+    <p class="section-intro">Everything you need under one roof in Los Algodones, grouped by category. Start with cosmetic dentistry, then implants and restorative, then general and preventive care.</p>
+    ${categorySections()}
+  </div>
+</section>
+
 <section class="section-alt">
   <div class="wrap center">
     <div class="eyebrow">On Facebook</div>
@@ -398,19 +407,10 @@ function buildHome() {
     <p class="section-intro">Watch a video from Luxe Dentistry and follow us for patient smiles, clinic updates and more from Los Algodones.</p>
     <div class="fb-feature">
       <div class="fb-video">
-        <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.reels[0])}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video on Facebook"></iframe>
+        <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.clinicReel)}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video on Facebook"></iframe>
       </div>
       <a class="btn btn-gold" href="${B.facebook}" target="_blank" rel="noopener">Visit Our Facebook Page</a>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap center">
-    <div class="eyebrow">Our Dental Services</div>
-    <h2>Complete Dental Care, Organized by Category</h2>
-    <p class="section-intro">Everything you need under one roof in Los Algodones. Browse our treatments by cosmetic, implant and restorative, or general and preventive care.</p>
-    ${categorySections()}
   </div>
 </section>
 
@@ -813,8 +813,8 @@ function buildAbout() {
    TEAM
    ============================================================ */
 function buildTeam() {
-  const title = `Meet the Dentist | Dr. Jose Manuel Jimenez, DDS at ${B.name} — Cosmetic & Implant Dentist in ${CITY}`;
-  const desc = `Meet Dr. Jose Manuel Jimenez, DDS, the cosmetic and implant dentist behind Luxe Dentistry in ${CITY}. 25 years of experience, hundreds of smile makeovers. English and Spanish spoken. ${B.rating} on Google.`;
+  const title = `Our Team | ${B.name} — Meet Dr. Jose Manuel Jimenez, DDS & the Luxe Dentistry Team in ${CITY}`;
+  const desc = `Meet the Luxe Dentistry team in ${CITY}, led by Dr. Jose Manuel Jimenez, DDS: a friendly, bilingual team with 25 years of experience. English and Spanish spoken. ${B.rating} on Google.`;
   const t = team[0];
   const teamCard = `
     <div class="team-card">
@@ -839,21 +839,25 @@ function buildTeam() {
   + header("team")
   + `
 <div class="page-head"><div class="wrap">
-  <div class="crumb"><a href="/index.html">Home</a> &rsaquo; Meet the Dentist</div>
-  <h1>Meet Dr. Jose Manuel Jimenez, DDS</h1>
-  <p>The cosmetic and implant dentist behind Luxe Dentistry, dedicated to making your visit to Los Algodones comfortable, honest and rewarding, from your first message to your final smile.</p>
+  <div class="crumb"><a href="/index.html">Home</a> &rsaquo; Our Team</div>
+  <h1>Meet the Luxe Dentistry Team</h1>
+  <p>Led by Dr. Jose Manuel Jimenez, DDS, our friendly, bilingual team is dedicated to making your visit to Los Algodones comfortable, honest and rewarding, from your first message to your final smile.</p>
 </div></div>
 
 <section><div class="wrap">
   <div class="team-list">${teamCard}</div>
 
-  ${atWork.length ? `
   <div class="center" style="margin-top:56px">
-    <div class="eyebrow">At the Clinic</div>
-    <h2>Dr. Jimenez With Our Patients</h2>
-    <p class="section-intro">Real moments from the Luxe Dentistry clinic in Los Algodones.</p>
+    <div class="eyebrow">The Full Team</div>
+    <h2>Our Luxe Dentistry Team</h2>
+    <p class="section-intro">The friendly, bilingual team that will look after you at our clinic in Los Algodones.</p>
   </div>
-  <div class="photo-grid photo-grid-3">${atWork.map((s)=>`<figure class="photo"><img src="/assets/img/${s[0]}" alt="${esc(s[1])}" loading="lazy"></figure>`).join("")}</div>` : ""}
+  ${hasImg("team-group.jpg") ? `<figure class="team-hero"><img src="/assets/img/team-group.jpg" alt="The Luxe Dentistry team with Dr. Jose Manuel Jimenez at the clinic in Los Algodones" loading="lazy"></figure>` : ""}
+  <div class="photo-grid photo-grid-3" style="margin-top:22px">
+    ${hasImg("team-two.jpg") ? `<figure class="photo"><img src="/assets/img/team-two.jpg" alt="Luxe Dentistry team members at the clinic" loading="lazy"></figure>` : ""}
+    <figure class="photo"><img src="/assets/img/patient-02.jpg" alt="Dr. Jimenez with a patient in the treatment room" loading="lazy"></figure>
+    <figure class="photo"><img src="/assets/img/patient-04.jpg" alt="Patients with the Luxe Dentistry team" loading="lazy"></figure>
+  </div>
 
   <div class="callout gold" style="max-width:760px;margin:48px auto 0;text-align:center">
     <h3 style="margin-top:0">Come and meet Dr. Jimenez</h3>
