@@ -358,13 +358,13 @@ function buildHome() {
   + `
 <section class="fb-top">
   <div class="wrap center">
+    <div class="eyebrow">On Facebook</div>
+    <h2>See Our Clinic on Facebook</h2>
+    <p class="section-intro" style="margin-bottom:22px">Watch a video from Luxe Dentistry and follow us for patient smiles, clinic updates and more from Los Algodones.</p>
     <div class="fb-video">
       <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.clinicReel)}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video on Facebook"></iframe>
     </div>
-    <div class="eyebrow" style="margin-top:24px">On Facebook</div>
-    <h2>See Our Clinic on Facebook</h2>
-    <p class="section-intro" style="margin-bottom:18px">Watch a video from Luxe Dentistry and follow us for patient smiles, clinic updates and more from Los Algodones.</p>
-    <a class="btn btn-gold" href="${B.facebook}" target="_blank" rel="noopener">Visit Our Facebook Page</a>
+    <a class="btn btn-gold" href="${B.facebook}" target="_blank" rel="noopener" style="margin-top:22px">Visit Our Facebook Page</a>
   </div>
 </section>
 
