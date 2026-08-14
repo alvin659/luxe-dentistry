@@ -633,3 +633,11 @@ img,iframe,svg,video,table{max-width:100%}
   .brand-mark{padding:5px 10px}
   .brand-mark img{height:32px}
 }
+
+/* v7: topbar removed; Areas dropdown = good multi-column; tighter nav for more items */
+.dropdown-areas{grid-template-columns:repeat(2,1fr);gap:2px 8px;min-width:440px}
+.menu>li:hover .dropdown-areas,.menu>li:focus-within .dropdown-areas{display:grid}
+.nav{gap:10px}
+.menu{gap:1px}
+.menu>li>a{padding:10px 9px;font-size:.9rem}
+@media(max-width:1080px){.menu>li>a{padding:9px 7px;font-size:.85rem}.nav{gap:6px}}

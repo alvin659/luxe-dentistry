@@ -170,13 +170,6 @@ function header(active) {
     </div>`).join("");
   const areaLinks = areas.map((a) => `<a href="/dentist-${a.slug}.html">${a.nav}</a>`).join("");
   return `
-<div class="topbar"><div class="wrap">
-  <span class="tb-left">Se habla espa&ntilde;ol &middot; Walk across the border from Yuma, Arizona</span>
-  <span class="tb-right">
-    <a href="tel:${B.phoneHref}">${I.phone} ${B.phone}</a>
-    <a href="https://wa.me/${B.whatsappHref}" target="_blank" rel="noopener">${I.wa} WhatsApp</a>
-  </span>
-</div></div>
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="/index.html" aria-label="Luxe Dentistry home">
@@ -188,11 +181,12 @@ function header(active) {
       <li><a href="/about.html"${active==="about"?' aria-current="page"':""}>About</a></li>
       <li class="has-dd"><a href="/services.html"${active==="services"?' aria-current="page"':""}>Services <span class="caret"></span></a>
         <div class="dropdown dropdown-svc">${svcMenu}</div></li>
-      <li><a href="/team.html"${active==="team"?' aria-current="page"':""}>The Dentist</a></li>
-      <li class="has-dd"><a href="/dentist-los-algodones.html"${active==="areas"?' aria-current="page"':""}>Areas <span class="caret"></span></a>
-        <div class="dropdown">${areaLinks}</div></li>
-      <li><a href="/testimonials.html"${active==="testimonials"?' aria-current="page"':""}>Reviews</a></li>
+      <li class="has-dd"><a href="/dentist-los-algodones.html"${active==="areas"?' aria-current="page"':""}>Areas We Serve <span class="caret"></span></a>
+        <div class="dropdown dropdown-areas">${areaLinks}</div></li>
+      <li><a href="/testimonials.html"${active==="testimonials"?' aria-current="page"':""}>Testimonials</a></li>
+      <li><a href="/team.html"${active==="team"?' aria-current="page"':""}>Team</a></li>
       <li><a href="/contact.html"${active==="contact"?' aria-current="page"':""}>Contact</a></li>
+      <li><a href="/terms.html"${active==="terms"?' aria-current="page"':""}>Terms</a></li>
     </ul>
     <div class="nav-cta">
       <a class="btn btn-gold" href="/booking.html">Book Appointment</a>
@@ -1114,7 +1108,7 @@ function buildTerms() {
   ];
   const html = head(title, desc, "terms.html")
   + breadcrumbSchema([["Home","index.html"],["Terms & Conditions","terms.html"]])
-  + header("")
+  + header("terms")
   + `
 <div class="page-head"><div class="wrap">
   <div class="crumb"><a href="/index.html">Home</a> &rsaquo; Terms &amp; Conditions</div>
