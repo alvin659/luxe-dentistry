@@ -180,7 +180,8 @@ function header(active) {
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="/index.html" aria-label="Luxe Dentistry home">
-      <img src="/assets/img/logo.jpeg" alt="Luxe Dentistry, Los Algodones" class="brand-logo" width="150" height="63">
+      <span class="brand-mark"><img src="/assets/img/logo.jpeg" alt="Luxe Dentistry" class="brand-logo" width="150" height="63"></span>
+      <span class="brand-tag">Cosmetic &amp; Implant Dentist<small>Los Algodones, Mexico</small></span>
     </a>
     <ul class="menu">
       <li><a href="/index.html"${active==="home"?' aria-current="page"':""}>Home</a></li>
@@ -253,8 +254,9 @@ function footer() {
 }
 
 /* ---------------- reusable blocks ---------------- */
-function videoBlock() {
-  const cards = videoReviews.map((v, i) => `
+function videoBlock(idxs) {
+  const list = idxs ? idxs.map((i) => videoReviews[i]).filter(Boolean) : videoReviews;
+  const cards = list.map((v, i) => `
     <figure class="video-card">
       <div class="video-embed">
         <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(v.url)}&show_text=false&width=380&height=680" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Patient video review: ${esc(v.treatment)}"></iframe>
@@ -395,6 +397,20 @@ function buildHome() {
   <div class="item"><div class="num">ADM</div><div class="lbl">Member Clinic</div></div>
 </div></div>
 
+<section class="section-alt">
+  <div class="wrap center">
+    <div class="eyebrow">On Facebook</div>
+    <h2>See Our Clinic on Facebook</h2>
+    <p class="section-intro">Watch a video from Luxe Dentistry and follow us for patient smiles, clinic updates and more from Los Algodones.</p>
+    <div class="fb-feature">
+      <div class="fb-video">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=${enc(B.reels[0])}&show_text=false&width=476&height=476" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Luxe Dentistry clinic video on Facebook"></iframe>
+      </div>
+      <a class="btn btn-gold" href="${B.facebook}" target="_blank" rel="noopener">Visit Our Facebook Page</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap center">
     <div class="eyebrow">Our Dental Services</div>
@@ -443,7 +459,7 @@ function buildHome() {
     <div class="eyebrow">Patient Video Reviews</div>
     <h2>Hear From Our Patients</h2>
     <p class="section-intro">Real video reviews shared from our Facebook page. Watch patients describe their experience before and after treatment with Dr. Jimenez.</p>
-    ${videoBlock()}
+    ${videoBlock([1])}
     <p style="margin-top:26px"><a class="btn btn-outline" href="/testimonials.html">See More Reviews &amp; Before/After Cases</a></p>
   </div>
 </section>
